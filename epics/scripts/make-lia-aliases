@@ -56,7 +56,7 @@ for ch in $(seq 1 $NC); do
 		cid=$(printf "%02d" $chn)
 		pfx=$(printf "$HN:1:CH%02d:REF%d" $ch $ref)
 		
-		cprams="UUT=$HN,SITE=1,REF=${ref},RS=LONG,PFX=$pfx,cid=$cid,LEN=$LEN,FSB=128"
+		cprams="UUT=$HN,SITE=1,REF=${ref},RS=LONG,RSS=LONG18,PFX=$pfx,cid=$cid,LEN=$LEN,FSB=128"
 		echo "dbLoadRecords(\"db/wfComplex.db\",\"$cprams\")"
 		let chn=$chn+1
 	done
