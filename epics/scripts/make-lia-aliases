@@ -37,13 +37,20 @@ IQ() {
 
 make_cplx_aliases() { (
 let chn=1
+let site=1
+let sitechan=$(get.site $site NCHAN)
 for ch in $(seq 1 $NC); do
 	for iq in 0 1; do
 		for ref in $(seq 1 $NR); do
-			printf "alias(\"$HN:1:AI:WF:%02d\", \
+			printf "alias(\"$HN:$site:AI:WF:%02d\", \
 				\"$HN:1:CH%02d:REF%d:%c\")\\n" \
 				$chn $ch $ref $(IQ $iq)
 			let chn=$chn+1
+			if [ $chn -gt $sitechan ]; then
+				let site=$site+1
+				let sitechan=$(get.site $site NCHAN)
+				let chn=1
+			fi 
 		done
 	done
 done
