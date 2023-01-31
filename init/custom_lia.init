@@ -1,8 +1,7 @@
 #!/bin/sh
-MDIR=/usr/local/lib/modules
-/sbin/insmod $MDIR/debugfs2.ko
-/sbin/insmod $MDIR/regfs.ko
-/sbin/insmod $MDIR/acq400_dspfs.ko
+#
+
+/usr/local/CARE/acq400_dspfs.init
 ln -s /sys/kernel/debug/dsp1/ /dev/dsp1
 
 cat /usr/local/CARE/LIA/lia-regdef >/dev/dsp1/.create
