@@ -10,7 +10,8 @@ mkdir -p opkg/usr/local/bin \
 	opkg/usr/local/init \
 	opkg/usr/local/CARE \
 	opkg/usr/local/awgdata \
-	opkg/usr/local/epics/scripts
+	opkg/usr/local/epics/scripts \
+	release
  
 cp -a CARE/* opkg/usr/local/CARE
 cp bin/* opkg/usr/local/bin
